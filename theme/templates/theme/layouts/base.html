@@ -1,0 +1,27 @@
+{% load static %}
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  {% block title %} {% endblock %}
+  {% include 'theme/partials/loaders/style.html' %}
+</head>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  {% include 'theme/partials/navbar.html'  %}
+
+  {% include 'theme/partials/sidebar.html' %}
+
+    <div class="content-wrapper p-2 pt-4">
+
+        {% block page_title %}  {% endblock %}
+        {% block content %} {% endblock %}
+
+    </div>
+</div>
+{% include 'theme/partials/loaders/scrips.html' %}
+</body>
+</html>
