@@ -9,4 +9,10 @@ class CustomersList(ListView):
     model = Customer
 
     def get_queryset(self):
-        pass
+        queryset = Customer.objects.all()
+        search = self.request.GET.get('search', False)
+        if search:
+            queryset = Customer.objects.filter(
+                full_name__icontains=search
+            )
+        return queryset

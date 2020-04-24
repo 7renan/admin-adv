@@ -1,36 +1,63 @@
 {% extends 'theme/layouts/base.html' %}
 
+{% block page_title %} Lista De Clientes {% endblock %}
+
 {% block content %}
 
 <div class="row">
     <div class="col-sm-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Lista De Clientes</h3>
-
-                <div class="card-tools">
-                    <div class="input-group input-group-sm" style="width: 150px;">
-                        <input type="text" name="table_search" class="form-control float-right" placeholder="Pesquisar">
-
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                <form method="get">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <button class="btn btn-light">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <input class="form-control" type="text" placeholder="Pesqusar" name="search">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-8">
+                            <a href="#" class="btn btn-success float-right">
+                                Adicionar
+                                <i class="fas fa-plus ml-2"></i>
+                            </a>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
             <div class="card-body table-responsive p-0">
                 <table class="table table-hover text-nowrap">
                     <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>User</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Reason</th>
+                        <th>Nome</th>
+                        <th>Data De Nascimento</th>
+                        <th>Ações</th>
                     </tr>
                     </thead>
                     <tbody>
-                       
+                    {% for customer in customers %}
+                    <tr>
+                        <td>{{ customer.full_name }}</td>
+                        <td>{{ customer.birth_date }}</td>
+                        <td>
+                            <a href="#" class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="#" class="btn btn-secondary btn-sm">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="#" class="btn btn-success btn-sm">
+                                <i class="fas fa-id-card"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <td class="text-center" colspan="3">
+                        Nenhum Cliente Encontrado
+                    </td>
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>
