@@ -27,10 +27,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # extenal apps
+    'widget_tweaks',
     # my apps
     'theme',
     'customers',
     'addresses',
+    'accounts',
+    'contacts',
 ]
 
 MIDDLEWARE = [
