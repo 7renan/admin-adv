@@ -32,6 +32,7 @@ class CustomerCreate(TemplateView):
         context['form_contact'] = ContactFormCreate(self.request.POST or None)
         return context
 
-
+    def post(self):
+        pass
 
 
