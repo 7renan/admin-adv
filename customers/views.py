@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import ListView, TemplateView
 from customers.models import Customer
+from django.urls import reverse_lazy
+from django.shortcuts import redirect
 # forms
 from customers.forms import CustomerFormCreate
 from addresses.forms import AddressForm
@@ -29,10 +31,18 @@ class CustomerCreate(TemplateView):
         context = super(CustomerCreate, self).get_context_data(**kwargs)
         context['form'] = CustomerFormCreate(self.request.POST or None)
         context['form_address'] = AddressForm(self.request.POST or None)
-        context['form_contact'] = ContactFormCreate(self.request.POST or None)
         return context
 
-    def post(self):
-        pass
+    def post(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        customer_form = context['form']
+        form_address = context['form_address']
+        if all((customer_form.is_valid(), form_address.is_valid())):
+            address = form_address.save()
+            customer_form.instance.address = address
+            customer = customer_form.save()
+            customer.save()
+            return redirect(reverse_lazy('customers:customers_list'))
+        return self.render_to_response(context)
 
 
