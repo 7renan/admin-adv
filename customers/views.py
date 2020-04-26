@@ -46,3 +46,12 @@ class CustomerCreate(TemplateView):
         return self.render_to_response(context)
 
 
+class CustomerDetail(TemplateView):
+    template_name = 'customers/customers_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CustomerDetail, self).get_context_data(**kwargs)
+        context['customer'] = Customer.objects.filter(
+            pk=self.kwargs['pk']
+        ).first()
+        return context

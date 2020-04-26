@@ -1,0 +1,35 @@
+{% extends 'theme/layouts/base.html' %}
+
+{% block page_title %} Detalhe De Cliente {% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>{{ customer.full_name }}</h3>
+                </div>
+                <div class="card-body">
+                    <h6>Informações Básicas:</h6>
+                    <p>RG: <span class="badge badge-success">{{ customer.rg }}</span></p>
+                    <p>CPF: <span class="badge badge-success">{{ customer.cpf }}</span></p>
+                    <p>Data De Nascimento: <span class="badge badge-success">{{ customer.birth_date }}</span></p>
+                    <h6>Endereço:</h6>
+                    <p>Cidade: <span class="badge badge-success">{{ customer.address.city }}</span></p>
+                    <p>Bairro: <span class="badge badge-success">{{ customer.address.neighborhood }}</span></p>
+                    <p>Rua: <span class="badge badge-success">{{ customer.address.street }}</span></p>
+                    <p>Número: <span class="badge badge-success">{{ customer.address.number }}</span></p>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <a href="#" class="btn btn-secondary float-right">
+                                <i class="fas fa-edit mr-2"></i>Editar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

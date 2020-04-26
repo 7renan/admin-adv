@@ -45,7 +45,7 @@
                     <tbody>
                     {% for customer in customers %}
                     <tr>
-                        <td><a href="#">{{ customer.full_name }}</a></td>
+                        <td><a href="{% url 'customers:customers_detail' customer.pk %}">{{ customer.full_name }}</a></td>
                         <td>{{ customer.cpf }}</td>
                         <td>{{ customer.rg }}</td>
                         <td>{{ customer.birth_date }}</td>
