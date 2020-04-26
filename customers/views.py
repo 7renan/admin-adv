@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, TemplateView
+from django.views.generic import ListView, TemplateView, UpdateView
 from customers.models import Customer
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
@@ -55,3 +55,12 @@ class CustomerDetail(TemplateView):
             pk=self.kwargs['pk']
         ).first()
         return context
+
+
+class CustomerUpdate(UpdateView):
+    model = Customer
+    form_class = CustomerFormCreate
+    template_name = 'customers/customers_update.html'
+
+    def get_success_url(self):
+        return reverse_lazy('customers:customers_detail', kwargs={'pk': self.get_object().pk})

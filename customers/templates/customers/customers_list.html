@@ -50,7 +50,7 @@
                         <td>{{ customer.rg }}</td>
                         <td>{{ customer.birth_date }}</td>
                         <td>
-                            <a href="#" class="btn btn-primary btn-sm">
+                            <a href="{% url 'customers:customers_update' customer.pk %}" class="btn btn-primary btn-sm">
                                 <i class="fas fa-edit"></i>
                             </a>
                         </td>

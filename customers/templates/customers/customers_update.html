@@ -1,0 +1,56 @@
+{% extends 'theme/layouts/base.html' %}
+
+{% block page_title %} Editar Cliente {% endblock %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label for="{{ form.full_name.auto_id }}">
+                                {{ form.full_name.label }}:
+                            </label>
+                            {% render_field form.full_name class="form-control" %}
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label for="{{ form.full_name.auto_id }}">
+                                {{ form.rg.label }}:
+                            </label>
+                            {% render_field form.rg class="form-control" %}
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label for="{{ form.full_name.auto_id }}">
+                                {{ form.cpf.label }}:
+                            </label>
+                            {% render_field form.cpf class="form-control" %}
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label for="{{ form.birth_date.auto_id }}">
+                                {{ form.birth_date.label }}:
+                            </label>
+                            {% render_field form.birth_date class="form-control" %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button type="submit" class="btn btn-success mr-2">
+                                <i class="fas fa-check mr-2"></i>Salvar
+                            </button>
+                            <a class="btn btn-secondary" href="{% url 'customers:customers_list' %}">
+                                <i class="fas fa-window-close mr-2"></i>Cancelar
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
