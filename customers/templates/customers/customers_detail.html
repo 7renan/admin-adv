@@ -3,33 +3,52 @@
 {% block page_title %} Detalhe De Cliente {% endblock %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-header">
-                    <h3>{{ customer.full_name }}</h3>
-                </div>
-                <div class="card-body">
-                    <h6>Informações Básicas:</h6>
-                    <p>RG: <span class="badge badge-success">{{ customer.rg }}</span></p>
-                    <p>CPF: <span class="badge badge-success">{{ customer.cpf }}</span></p>
-                    <p>Data De Nascimento: <span class="badge badge-success">{{ customer.birth_date }}</span></p>
-                    <h6>Endereço:</h6>
-                    <p>Cidade: <span class="badge badge-success">{{ customer.address.city }}</span></p>
-                    <p>Bairro: <span class="badge badge-success">{{ customer.address.neighborhood }}</span></p>
-                    <p>Rua: <span class="badge badge-success">{{ customer.address.street }}</span></p>
-                    <p>Número: <span class="badge badge-success">{{ customer.address.number }}</span></p>
-                </div>
-                <div class="card-footer">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <a href="{% url 'customers:customers_update' customer.pk %}" class="btn btn-secondary float-right">
-                                <i class="fas fa-edit mr-2"></i>Editar
-                            </a>
-                        </div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card profile px-2">
+            <div class="card-header">
+                <h4 class="text-center">{{ customer.full_name }}</h4>
+            </div>
+            <div class="card-body">
+                <h6>
+                    <i class="fas fa-address-card"></i> Informações Básicas
+                </h6>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        RG: {{ customer.rg }}
+                    </li>
+                    <li class="list-group-item">
+                        CPF: {{ customer.cpf }}
+                    </li>
+                    <li class="list-group-item">
+                        DATA DE NASCIMENTO: {{ customer.birth_date }}
+                    </li>
+                </ul>
+                <h6>
+                    <i class="fas fa-map-marker-alt mt-4"></i> Endereço
+                </h6>
+                 <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      RUA:  {{ customer.address.street }}, {{ customer.address.neighborhood }}, Nº {{ customer.address.number }}
+                    </li>
+                    <li class="list-group-item">
+                       CIDADE: {{ customer.address.city }} - {{ customer.address.state }}
+                    </li>
+                </ul>
+                <h6>
+                    <i class="fas fa-address-book mt-4"></i> Contato
+                </h6>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a href="{% url 'customers:customers_update' customer.pk %}" class="btn btn-secondary float-right">
+                            <i class="fas fa-edit mr-2"></i>Editar
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
