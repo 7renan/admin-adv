@@ -1,6 +1,7 @@
 from django.db import models
 # models
 from addresses.models import Address
+from contacts.models import Phone
 
 
 class Customer(models.Model):
@@ -9,6 +10,8 @@ class Customer(models.Model):
     birth_date = models.DateField('Data de nascimento')
     cpf = models.CharField('CPF', max_length=20, unique=True)
     rg = models.CharField('RG', max_length=20, unique=True)
+    email = models.EmailField('Email', blank=True)
+    phone = models.ForeignKey(Phone, verbose_name='Telefone', on_delete=models.CASCADE, blank=True)
     address = models.ForeignKey(Address, verbose_name='Endereço', on_delete=models.CASCADE)
 
     class Meta:

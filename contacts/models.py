@@ -2,9 +2,9 @@ from django.db import models
 
 
 class Phone(models.Model):
-    ddi = models.CharField('DDI', max_length=2)
-    ddd = models.CharField('DDD', max_length=2)
-    number = models.CharField('Número', max_length=11)
+    ddi = models.CharField('DDI', max_length=2, blank=True)
+    ddd = models.CharField('DDD', max_length=2, blank=True)
+    number = models.CharField('Número', max_length=11, blank=True)
 
     class Meta:
         verbose_name = 'Telefone'
