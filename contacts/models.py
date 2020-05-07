@@ -18,6 +18,7 @@ class Contact(models.Model):
     name = models.CharField('Nome', max_length=150)
     email = models.EmailField('Email')
     phone = models.ForeignKey(Phone, verbose_name='Telefone', on_delete=models.CASCADE)
+    about = models.CharField('Sobre', max_length=200, blank=True)
 
     class Meta:
         verbose_name = 'Contato'

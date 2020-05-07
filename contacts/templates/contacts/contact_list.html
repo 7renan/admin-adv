@@ -8,13 +8,18 @@
     <div class="card-header">
         <div class="row">
             <div class="col-sm-12">
-                <div class="col-sm-4">
-                    <div class="input-group">
-                        <button class="btn btn-light">
-                            <i class="fas fa-search"></i>
-                        </button>
-                        <input class="form-control" type="text" placeholder="Pesquisar por nome" name="search">
-                    </div>
+                <div class="col-sm-6">
+                    <form method="get">
+                        <div class="input-group">
+                            <button class="btn btn-light">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            <input class="form-control" type="text" placeholder="Pesquisar por nome" name="search">
+                            <a href="{% url 'contacts:contact_list' %}" class="btn btn-secondary ml-2">
+                                <i class="fas fa-broom mr-2"></i>Limpar Filtros
+                            </a>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -26,6 +31,7 @@
             <tr>
                 <th>#</th>
                 <th>Contato</th>
+                <th>Sobre</th>
                 <th>Email</th>
                 <th>Telefone</th>
                 <th>Ações</th>
@@ -36,6 +42,7 @@
             <tr>
                 <td>{{ contact.pk }}</td>
                 <td>{{ contact.name }}</td>
+                <td>{{ contact.about }}</td>
                 <td>{{ contact.email }}</td>
                 <td>( {{ contact.phone.ddd }} ) - {{ contact.phone.number }}</td>
                 <td>
@@ -44,6 +51,8 @@
                     </a>
                 </td>
             </tr>
+            {% empty %}
+            <td colspan="5" class="text-center">Nenhum contato encontrado</td>
             {% endfor %}
             </tbody>
         </table>

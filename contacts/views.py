@@ -10,3 +10,12 @@ class ContactList(ListView):
     model = Contact
     context_object_name = 'contacts'
 
+    def get_queryset(self):
+        queryset = Contact.objects.all()
+        search = self.request.GET.get('search', False)
+
+        if search:
+            queryset = queryset.filter(
+                name__icontains=search
+            )
+        return queryset
