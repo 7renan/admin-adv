@@ -10,7 +10,9 @@
                 {% load widget_tweaks %}
                 <form method="post">
                     {% csrf_token %}
-                    <h6>Informações Básicas</h6>
+                    <h6>
+                        <i class="fas fa-address-book mr-2"></i>Informações Básicas
+                    </h6>
                     <div class="row">
                         <div class="form-group col-sm-3">
                             <label for="{{ form.first_name.auto_id }}">
@@ -43,7 +45,9 @@
                             {% render_field form.rg class="form-control" %}
                         </div>
                     </div>
-                    <h6>Endereço:</h6>
+                    <h6>
+                        <i class="fas fa-map-marker-alt mr-2"></i>Endereço
+                    </h6>
                     <div class="row">
                         <div class="form-group col-sm-6">
                             <label for="{{ form_address.street.auto_id }}">
@@ -82,9 +86,40 @@
                             {% render_field form_address.complement rows="2" class="form-control" %}
                         </div>
                         <hr>
+                    </div>
+                    <h6>
+                        <i class="fas fa-id-card mr-2"></i>Contato
+                    </h6>
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label for="{{ form.email.auto_id }}">
+                                {{ form.email.label }}:
+                            </label>
+                            {% render_field form.email class="form-control" %}
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="{{ form_phone.ddi.auto_id }}">
+                                {{ form_phone.ddi.label }}:
+                            </label>
+                            {% render_field form_phone.ddi class="form-control" %}
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="{{ form_phone.ddd.auto_id }}">
+                                {{ form_phone.ddd.label }}:
+                            </label>
+                            {% render_field form_phone.ddd class="form-control" %}
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <label for="{{ form_phone.number.auto_id }}">
+                                {{ form_phone.number.label }}:
+                            </label>
+                            {% render_field form_phone.number class="form-control" %}
+                        </div>
+
                         <div class="col-sm-12">
                             <button type="submit" class="btn btn-success">
-                               <i class="fas fa-check mr-2"></i> Salvar
+                                <i class="fas fa-check mr-2"></i> Salvar
                             </button>
                         </div>
                     </div>

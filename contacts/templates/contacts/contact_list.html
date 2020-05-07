@@ -1,0 +1,56 @@
+{% extends 'theme/layouts/base.html' %}
+{% load static %}
+{% block page_title %} Lista De Contatos {% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-4">
+                    <div class="input-group">
+                        <button class="btn btn-light">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <input class="form-control" type="text" placeholder="Pesquisar por nome" name="search">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Contato</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.pk }}</td>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.email }}</td>
+                <td>( {{ contact.phone.ddd }} ) - {{ contact.phone.number }}</td>
+                <td>
+                    <a href="#" class="btn btn-primary btn-sm py-2">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->
+</div>
+
+{% endblock %}

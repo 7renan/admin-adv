@@ -11,8 +11,8 @@ class Customer(models.Model):
     cpf = models.CharField('CPF', max_length=20, unique=True)
     rg = models.CharField('RG', max_length=20, unique=True)
     email = models.EmailField('Email', blank=True)
-    phone = models.ForeignKey(Phone, verbose_name='Telefone', on_delete=models.CASCADE, blank=True)
     address = models.ForeignKey(Address, verbose_name='Endereço', on_delete=models.CASCADE)
+    phone = models.ForeignKey(Phone, verbose_name='Telefone', on_delete=models.CASCADE, blank=True)
 
     class Meta:
         verbose_name = 'Cliente'

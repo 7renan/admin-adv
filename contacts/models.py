@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Phone(models.Model):
-    ddi = models.CharField('DDI', max_length=2, blank=True)
+    ddi = models.CharField('DDI', max_length=2, blank=True, default=55)
     ddd = models.CharField('DDD', max_length=2, blank=True)
     number = models.CharField('Número', max_length=11, blank=True)
 

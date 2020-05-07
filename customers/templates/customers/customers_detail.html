@@ -15,13 +15,13 @@
                 </h6>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        RG: {{ customer.rg }}
+                        <strong>Rg:</strong>{{ customer.rg }}
                     </li>
                     <li class="list-group-item">
-                        CPF: {{ customer.cpf }}
+                        <strong>Cpf:</strong> {{ customer.cpf }}
                     </li>
                     <li class="list-group-item">
-                        DATA DE NASCIMENTO: {{ customer.birth_date }}
+                        <strong>Data De Nascimento: </strong> {{ customer.birth_date }}
                     </li>
                 </ul>
                 <h6>
@@ -29,15 +29,23 @@
                 </h6>
                  <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                      RUA:  {{ customer.address.street }}, {{ customer.address.neighborhood }}, Nº {{ customer.address.number }}
+                      <strong>Rua:</strong>  {{ customer.address.street }}, {{ customer.address.neighborhood }}, Nº {{ customer.address.number }}
                     </li>
                     <li class="list-group-item">
-                       CIDADE: {{ customer.address.city }} - {{ customer.address.state }}
+                       <strong>Cidade</strong> {{ customer.address.city }} - {{ customer.address.state }}
                     </li>
                 </ul>
                 <h6>
                     <i class="fas fa-address-book mt-4"></i> Contato
                 </h6>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <strong>Email:</strong>  {{ customer.email }}
+                    </li>
+                    <li class="list-group-item">
+                       <strong>Telefone:</strong>: DDI: + {{ customer.phone.ddi }}, ({{ customer.phone.ddd }}) - {{ customer.phone.number }}
+                    </li>
+                </ul>
             </div>
             <div class="card-footer">
                 <div class="row">
