@@ -1,3 +1,68 @@
 {% extends 'theme/layouts/base.html' %}
 
 {% block page_title %} Agenda {% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-6">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Data</th>
+                <th>Hora</th>
+                <th>Atendido</th>
+                <th>Assunto</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for attendance in attendances %}
+            <tr>
+                <td>{{ attendance.pk }}</td>
+                {% if attendance.is_today %}
+                <td>
+                   {{ attendance.date }} <span class="badge badge-success ml-2">Hoje</span>
+                </td>
+                {% else %}
+                <td>{{ attendance.date }}</td>
+                {% endif %}
+                <td>{{ attendance.horary }}</td>
+                <td>{{ attendance.attended }}</td>
+                <td>{{ attendance.topic }}</td>
+                <td>--- ---</td>
+                <td class="text-center">
+                    <a href="#" title="Concluir" class="btn btn-success btn-sm py-2">
+                        <i class="fas fa-check-circle"></i>
+                    </a>
+                    <a href="#" title="Remarcar" class="btn btn-primary btn-sm py-2">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="#" title="Cancelar" class="btn btn-danger btn-sm py-2">
+                        <i class="fas fa-window-close"></i>
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <td colspan="6" class="text-center">Nenhum atendimento agendado</td>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->
+</div>
+{% endblock %}
