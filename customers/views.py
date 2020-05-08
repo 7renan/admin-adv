@@ -4,7 +4,7 @@ from customers.models import Customer
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
 # forms
-from customers.forms import CustomerFormCreate
+from customers.forms import CustomerFormCreate, CustomerFormUpdate
 from addresses.forms import AddressForm
 from contacts.forms import PhoneFormCreate
 from contacts.forms import ContactFormCreate
@@ -65,7 +65,7 @@ class CustomerDetail(TemplateView):
 
 class CustomerUpdate(UpdateView):
     model = Customer
-    form_class = CustomerFormCreate
+    form_class = CustomerFormUpdate
     template_name = 'customers/customers_update.html'
 
     def get_success_url(self):
