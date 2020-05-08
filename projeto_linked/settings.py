@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'addresses',
     'accounts',
     'contacts',
+    'attendances',
 ]
 
 MIDDLEWARE = [
