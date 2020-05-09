@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, TemplateView, UpdateView
 from customers.models import Customer
 from django.urls import reverse_lazy
@@ -10,7 +11,7 @@ from contacts.forms import PhoneFormCreate
 from contacts.forms import ContactFormCreate
 
 
-class CustomersList(ListView):
+class CustomersList(LoginRequiredMixin, ListView):
     template_name = 'customers/customers_list.html'
     context_object_name = 'customers'
     model = Customer
@@ -25,7 +26,7 @@ class CustomersList(ListView):
         return queryset
 
 
-class CustomerCreate(TemplateView):
+class CustomerCreate(LoginRequiredMixin, TemplateView):
     template_name = 'customers/customers_create.html'
 
     def get_context_data(self, **kwargs):
@@ -52,7 +53,7 @@ class CustomerCreate(TemplateView):
         return self.render_to_response(context)
 
 
-class CustomerDetail(TemplateView):
+class CustomerDetail(LoginRequiredMixin, TemplateView):
     template_name = 'customers/customers_detail.html'
 
     def get_context_data(self, **kwargs):

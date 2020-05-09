@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView , ListView
-
+from django.views.generic import TemplateView, ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
 # models
 from contacts.models import Contact
 
 
-class ContactList(ListView):
+class ContactList(LoginRequiredMixin, ListView):
     template_name = 'contacts/contact_list.html'
     model = Contact
     context_object_name = 'contacts'
