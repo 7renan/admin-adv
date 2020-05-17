@@ -7,19 +7,9 @@
     <div class="card-header">
         <div class="row">
             <div class="col-sm-12">
-                <a href="#" class="btn btn-success float-right">
+                <a href="{% url 'attendances:create' %}" class="btn btn-success float-right">
                     <i class="fas fa-plus mr-2"></i>Novo Agendamento
                 </a>
-                <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Filtrar
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Hoje</a>
-                        <a class="dropdown-item" href="#">Próximos 7 Dias</a>
-                        <a class="dropdown-item" href="#">Próximos 30 Dias</a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

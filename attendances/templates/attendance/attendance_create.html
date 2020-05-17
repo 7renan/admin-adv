@@ -1,0 +1,50 @@
+{% extends 'theme/layouts/base.html' %}
+
+{% load widget_tweaks %}
+
+{% block page_title %} Novo Agendamento {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <form method="post">
+            {% csrf_token %}
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="form-group col-sm-2">
+                            <label for="{{ form.date.auto_id }}">
+                                {{ form.date.label }}:
+                            </label>
+                            {% render_field form.date class="form-control" type="date" %}
+                        </div>
+                        <div class="form-group col-sm-1">
+                            <label for="{{ form.horary.auto_id }}">
+                                {{ form.horary.label }}
+                            </label>
+                            {% render_field form.horary class="form-control" type="time" placeholder="qdbkqdbqw" %}
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="{{ form.topic.auto_id }}">
+                                {{ form.topic.label }}
+                            </label>
+                            {% render_field form.topic class="form-control" %}
+                        </div>
+                        <div class="form-group col-sm-5">
+                            <label for="{{ form.attended.auto_id }}">
+                                {{ form.attended.label }}
+                            </label>
+                            {% render_field form.attended class="form-control" %}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-success float-right">
+                        <i class="fas fa-check mr-2"></i>Salvar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
