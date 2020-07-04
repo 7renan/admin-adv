@@ -4,18 +4,19 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-4">
         <div class="card profile px-2">
             <div class="card-header">
-                <h4 class="text-center">{{ customer.full_name }}</h4>
+                <h4 class="text-center">{{ customer.first_name }}</h4>
             </div>
             <div class="card-body">
-                <h6>
-                    <i class="fas fa-address-card"></i> Informações Básicas
-                </h6>
+
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <strong>Rg:</strong>{{ customer.rg }}
+                        <strong>Nome Completo:</strong> {{ customer.full_name }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Cpf:</strong> {{ customer.rg }}
                     </li>
                     <li class="list-group-item">
                         <strong>Cpf:</strong> {{ customer.cpf }}
@@ -24,28 +25,7 @@
                         <strong>Data De Nascimento: </strong> {{ customer.birth_date }}
                     </li>
                 </ul>
-                <h6>
-                    <i class="fas fa-map-marker-alt mt-4"></i> Endereço
-                </h6>
-                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                      <strong>Rua:</strong>  {{ customer.address.street }}, {{ customer.address.neighborhood }}, Nº {{ customer.address.number }}
-                    </li>
-                    <li class="list-group-item">
-                       <strong>Cidade</strong> {{ customer.address.city }} - {{ customer.address.state }}
-                    </li>
-                </ul>
-                <h6>
-                    <i class="fas fa-address-book mt-4"></i> Contato
-                </h6>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                      <strong>Email:</strong>  {{ customer.email }}
-                    </li>
-                    <li class="list-group-item">
-                       <strong>Telefone:</strong>: DDI: + {{ customer.phone.ddi }}, ({{ customer.phone.ddd }}) - {{ customer.phone.number }}
-                    </li>
-                </ul>
+               
             </div>
             <div class="card-footer">
                 <div class="row">
@@ -58,5 +38,61 @@
             </div>
         </div>
     </div>
+    <!-- list address   -->
+    <div class="col-sm-8">
+        <div class="row">
+            <!--    table address        -->
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-sm-12 d-flex justify-content-between">
+                                <h5>Endereços:</h5>
+                                <a href="#" class="btn btn-success btn-sm">
+                                    <i class="fas fa-plus mr-2"></i>Adicioar Endereço
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Rua</th>
+                                <th>Número</th>
+                                <th>Bairro</th>
+                                <th>Cidade</th>
+                                <th>Ações</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-sm-12 d-flex justify-content-between">
+                                <h5>Contatos:</h5>
+                                <a href="#" class="btn btn-success btn-sm">
+                                    <i class="fas fa-plus mr-2"></i>Adicioar Contato
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Email</th>
+                                <th>Telefone</th>
+                                <th>Bairro</th>
+                                <th>Ações</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 {% endblock %}
