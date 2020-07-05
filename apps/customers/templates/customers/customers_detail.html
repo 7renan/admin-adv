@@ -1,0 +1,98 @@
+{% extends 'theme/layouts/base.html' %}
+
+{% block page_title %} Detalhe De Cliente {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card profile px-2">
+            <div class="card-header">
+                <h4 class="text-center">{{ customer.first_name }}</h4>
+            </div>
+            <div class="card-body">
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <strong>Nome Completo:</strong> {{ customer.full_name }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Cpf:</strong> {{ customer.rg }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Cpf:</strong> {{ customer.cpf }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Data De Nascimento: </strong> {{ customer.birth_date }}
+                    </li>
+                </ul>
+
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a href="{% url 'customers:customers_update' customer.pk %}" class="btn btn-secondary float-right">
+                            <i class="fas fa-edit mr-2"></i>Editar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- list address   -->
+    <div class="col-sm-8">
+        <div class="row">
+            <!--    table address        -->
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-sm-12 d-flex justify-content-between">
+                                <h5>Endereços:</h5>
+                                <a href="#" class="btn btn-success btn-sm">
+                                    <i class="fas fa-plus mr-2"></i>Adicioar Endereço
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Rua</th>
+                                <th>Número</th>
+                                <th>Bairro</th>
+                                <th>Cidade</th>
+                                <th>Ações</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-sm-12 d-flex justify-content-between">
+                                <h5>Contatos:</h5>
+                                <a href="#" class="btn btn-success btn-sm">
+                                    <i class="fas fa-plus mr-2"></i>Adicioar Contato
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Email</th>
+                                <th>Telefone</th>
+                                <th>Bairro</th>
+                                <th>Ações</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
